@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>LiveDish AI — Multi-Cuisine AR Menu</title>
-  <meta name="description" content="Interactive AR menu for LiveDish AI — authentic Italian, Japanese, and Korean cuisine with 3D dish previews." />
+  <title>LiveDish AI — Next-Gen Multi-Cuisine AR Menu</title>
+  <meta name="description" content="Premium Interactive AR Platform for Luxury Hospitality by LiveDish AI." />
 
+  <!-- Fonts Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://unpkg.com" />
@@ -15,370 +16,286 @@
         href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTEkmIGoRgD1rQNmDgmY3lvB7WBOg86iOHHrS0MJ6qQiReuDHsUyX3YV7KoWXxTbefyBUWPTHpvUOt3/pub?output=csv"
         as="fetch" crossorigin="anonymous" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --font-serif:    'Playfair Display', 'Georgia', serif;
-      --font-sans:     'Inter', 'Helvetica Neue', sans-serif;
-      --font-display:  'Cinzel', serif;
-      --font-body:     'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Syne', sans-serif;
+      --font-sans:    'Plus Jakarta Sans', sans-serif;
+      --font-classic: 'Cinzel', serif;
 
-      --washi:        #efe2cf;
-      --washi-dark:   #e2d1b8;
-      --washi-deep:   #d4bea0;
-      --ink:          #2c120f;
-      --ink-mid:      #4e231b;
-      --ink-light:    #7b5647;
-      --ink-faint:    #a07d69;
-      --crimson:      #8d1d2d;
-      --crimson-mid:  #a32133;
-      --crimson-lt:   #c74456;
-      --gold:         #c39a5c;
-      --gold-lt:      #ddb777;
-      --gold-pale:    #f1d7a4;
-      --sage:         #567a47;
-      --sage-lt:      #dce9d0;
-      --shadow-ink:   rgba(44,18,15,0.14);
-      --shadow-deep:  rgba(44,18,15,0.24);
+      /* Premium Luxury Palette */
+      --bg-dark:       #0a0b10;
+      --surface-dark:  rgba(255, 255, 255, 0.03);
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --text-main:     #f8fafc;
+      --text-muted:    #94a3b8;
+      
+      /* Vibrant Technology Accents */
+      --electric-gold: #f59e0b;
+      --neon-cyan:     #06b6d4;
+      --glass-glow:    rgba(6, 182, 212, 0.15);
+      
+      --shadow-premium: 0 20px 40px -15px rgba(0,0,0,0.7);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: linear-gradient(180deg, #1f060a 0%, #3a0d12 30%, #4a1018 60%, #1f060a 100%);
-      color: #f3e8d7;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 45%);
+      color: var(--text-main);
       min-height: 100vh;
       font-family: var(--font-sans);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .menu-texture-bg {
-      position: absolute; inset: 0; opacity: 0.03;
-      background-size: 20px 20px;
-      background-image: linear-gradient(to right, #8b1a1a 1px, transparent 1px), linear-gradient(to bottom, #8b1a1a 1px, transparent 1px);
-      pointer-events: none;
+    /* Elegant Tech Dot Matrix Overlay */
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 24px 24px; pointer-events: none; opacity: 0.4; z-index: 1;
     }
 
+    /* ── HEADER DESIGN ── */
     .site-header {
-      position: relative; overflow: hidden;
-      background: linear-gradient(145deg, #25090c 0%, #3d0f13 50%, #25090c 100%);
-      color: #f5ede0; text-align: center;
-      padding: max(env(safe-area-inset-top), 2.5rem) 1rem 2.5rem;
+      position: relative; z-index: 2; text-align: center;
+      padding: max(env(safe-area-inset-top), 3rem) 1.5rem 3.5rem;
     }
-    .site-header .menu-texture-bg { opacity: 0.04; }
-    .site-header::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(139,26,26,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(154,120,32,0.14) 0%, transparent 60%);
-      pointer-events: none;
+    
+    .header-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.04); border: 1px solid var(--surface-border);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 1.5rem;
     }
-    .site-header::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, transparent, var(--crimson-mid), var(--gold-lt), var(--crimson-mid), transparent);
-    }
-    .header-mon {
-      width: 52px; height: 52px; border: 1.5px solid rgba(196,160,48,0.5);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 14px; position: relative; animation: monSpin 20s linear infinite;
-    }
-    @keyframes monSpin { to { transform: rotate(360deg); } }
-    .header-brand {
-      font-family: var(--font-serif); font-size: clamp(11px,2.5vw,13px);
-      letter-spacing: 6px; color: rgba(245,237,224,0.4); margin-bottom: 10px; text-transform: uppercase;
-    }
+    .header-pill-dot { width: 6px; height: 6px; background: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--neon-cyan); }
+    .header-pill-text { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+
     .header-title {
-      font-family: var(--font-display); font-size: clamp(28px,6.5vw,50px);
-      font-weight: 600; letter-spacing: 0.1em; line-height: 1; margin-bottom: 6px;
-      background: linear-gradient(160deg, #f5ede0 30%, var(--gold-pale) 65%, #f5ede0 100%);
+      font-family: var(--font-display); font-size: clamp(32px, 8vw, 56px);
+      font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 70%, var(--text-muted) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .header-title-sub {
-      font-family: var(--font-serif); font-size: clamp(14px,3.5vw,20px);
-      font-weight: 300; color: rgba(245,237,224,0.6); letter-spacing: 0.15em;
-      margin-bottom: 14px; display: block;
-    }
-    .brush-divider {
-      width: 120px; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--crimson-mid), transparent);
-      margin: 0 auto 18px; position: relative;
-    }
-    .brush-divider::before, .brush-divider::after {
-      content: '◆'; position: absolute; top: 50%; transform: translateY(-50%);
-      font-size: 6px; color: var(--gold-lt);
-    }
-    .brush-divider::before { left: 18px; }
-    .brush-divider::after  { right: 18px; }
-    .ar-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1px solid rgba(196,160,48,0.3); border-radius: 2px;
-      padding: 7px 18px; font-size: 11px; letter-spacing: 2px;
-      color: rgba(245,237,224,0.55); font-family: var(--font-sans);
-      background: rgba(154,120,32,0.08);
-    }
-    .ar-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--crimson-mid);
-      flex-shrink: 0; animation: pulse 1.8s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
-    
-    #language-picker { position: relative; z-index: 10; margin-bottom: 18px; }
-    #lang-select {
-      background: rgba(245,237,224,0.08); color: rgba(245,237,224,0.7);
-      border: 1px solid rgba(196,160,48,0.25); border-radius: 2px;
-      padding: 7px 12px; font-family: var(--font-sans);
-      font-size: 12px; cursor: pointer; outline: none; letter-spacing: 1px;
-    }
-    #lang-select option { background: #1c1108; color: #f5ede0; }
+    .header-title span { color: var(--neon-cyan); -webkit-text-fill-color: initial; }
 
-    /* ── STICKY NAVIGATION WRAPPER ── */
+    .header-subtitle {
+      font-size: clamp(14px, 3.5vw, 17px); font-weight: 400; color: var(--text-muted);
+      max-width: 500px; margin: 0 auto 2rem; line-height: 1.6;
+    }
+
+    #language-picker { margin-bottom: 1rem; }
+    #lang-select {
+      background: rgba(255,255,255,0.03); color: var(--text-muted);
+      border: 1px solid var(--surface-border); border-radius: 8px;
+      padding: 8px 16px; font-family: var(--font-sans); font-size: 12px;
+      cursor: pointer; outline: none; transition: border 0.3s;
+    }
+    #lang-select:focus { border-color: var(--neon-cyan); }
+    #lang-select option { background: #0f1115; color: var(--text-main); }
+
+    /* ── STICKY GLASSMORPHISM DUAL NAVIGATION ── */
     .nav-sticky-container {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(243,232,215,0.98);
-      border-bottom: 1px solid rgba(139,26,26,0.15);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      background: rgba(10, 11, 16, 0.75);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 10px 0;
     }
 
-    /* Cuisine Tier */
+    /* Tier 1: Modern Segmented Cuisine Selector */
     .cuisine-bar {
-      display: flex; justify-content: center; gap: 8px;
-      padding: 12px 1rem 8px;
-      border-bottom: 1px solid rgba(139,26,26,0.08);
+      display: flex; max-width: 480px; margin: 0 auto 10px;
+      background: rgba(255, 255, 255, 0.03); border: 1px solid var(--surface-border);
+      padding: 4px; border-radius: 12px; gap: 4px;
     }
     .cuisine-btn {
-      flex: 1; max-width: 160px; padding: 10px 14px;
-      border: 1px solid rgba(44,18,15,0.15); background: transparent;
-      color: var(--ink-light); font-family: var(--font-display);
-      font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 2px; text-align: center;
+      flex: 1; padding: 10px 12px; border: none; background: transparent;
+      color: var(--text-muted); font-family: var(--font-sans);
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
     }
-    .cuisine-btn:hover { background: rgba(139,26,26,0.04); color: var(--crimson); border-color: var(--crimson); }
+    .cuisine-btn:hover { color: var(--text-main); }
     .cuisine-btn.active {
-      background: var(--ink); color: #f5ede0; border-color: var(--ink);
-      box-shadow: 0 3px 8px rgba(44,18,15,0.25);
+      background: rgba(255, 255, 255, 0.08); color: var(--text-main);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 12px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* Categories Tier */
+    /* Tier 2: Minimalist Category Subtabs */
     .tabs-inner {
-      max-width: 740px; margin: 0 auto;
-      display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 8px 1rem;
+      max-width: 600px; margin: 0 auto;
+      display: flex; justify-content: center; gap: 8px; overflow-x: auto;
+      scrollbar-width: none; padding: 4px 1rem;
     }
     .tabs-inner::-webkit-scrollbar { display: none; }
     .tab-btn {
-      flex-shrink: 0; padding: 6px 16px; border: 1px solid transparent;
-      background: rgba(44,18,15,0.04); color: var(--ink-faint);
-      font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.5px;
-      cursor: pointer; transition: all 0.2s ease; border-radius: 1px;
+      flex-shrink: 0; padding: 6px 16px; border: none; background: transparent;
+      color: var(--text-muted); font-family: var(--font-sans); font-size: 13px;
+      font-weight: 500; cursor: pointer; transition: all 0.2s ease; position: relative;
     }
-    .tab-btn:hover { color: var(--crimson); background: rgba(139,26,26,0.05); }
-    .tab-btn.active { background: var(--crimson); color: var(--washi); box-shadow: 0 2px 8px rgba(139,26,26,0.25); }
-
-    .main { max-width: 740px; margin: 0 auto; padding: 1.5rem 1rem 5rem; }
-
-    .skeleton-grid { display: flex; flex-direction: column; gap: 10px; }
-    .skeleton-card {
-      background: rgba(243,232,215,0.5); border-radius: 1px;
-      padding: 1.1rem 1.25rem; border: 1px solid rgba(214,178,126,0.18);
-      border-left: 3px solid rgba(139,26,26,0.15);
-      animation: shimmer 1.4s ease-in-out infinite;
+    .tab-btn:hover { color: var(--text-main); }
+    .tab-btn.active { color: var(--neon-cyan); font-weight: 600; }
+    .tab-btn.active::after {
+      content: ''; position: absolute; bottom: -4px; left: 25%; width: 50%; height: 2px;
+      background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); border-radius: 2px;
     }
-    .skeleton-card .sk-row { display: flex; gap: 14px; }
-    .skeleton-card .sk-thumb { width: 68px; height: 68px; flex-shrink: 0; background: rgba(139,26,26,0.12); border-radius: 1px; }
-    .skeleton-card .sk-body { flex: 1; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
-    .skeleton-card .sk-line { height: 12px; background: rgba(139,26,26,0.1); border-radius: 2px; }
-    .skeleton-card .sk-line.wide { width: 65%; }
-    .skeleton-card .sk-line.full { width: 100%; }
-    @keyframes shimmer { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
 
-    .state-box { text-align: center; padding: 4rem 1rem; color: var(--ink-faint); }
-    .state-box .spinner {
-      width: 36px; height: 36px; border: 2px solid rgba(139,26,26,0.15);
-      border-top-color: var(--crimson); border-radius: 50%;
-      animation: spin 0.9s linear infinite; margin: 0 auto 1rem; background: transparent;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    
+    /* ── MENU ITEMS ARCHITECTURE ── */
+    .main { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 6rem; position: relative; z-index: 2; }
+
     .section-label {
-      display: flex; align-items: center; gap: 14px; margin: 2rem 0 1rem;
-      font-family: var(--font-serif); font-size: 11px; letter-spacing: 4px;
-      text-transform: uppercase; color: #f0d2a0;
+      display: flex; align-items: center; gap: 16px; margin: 2.5rem 0 1.25rem;
+      font-family: var(--font-display); font-size: 12px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); opacity: 0.8;
     }
-    .section-label span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(139,26,26,0.3), transparent); }
-    .section-label::before { content: '◈'; font-size: 10px; color: var(--gold); flex-shrink: 0; }
+    .section-label span { flex: 1; height: 1px; background: linear-gradient(90deg, var(--surface-border), transparent); }
 
-    .items-grid { display: flex; flex-direction: column; gap: 10px; }
+    .items-grid { display: flex; flex-direction: column; gap: 14px; }
+    
+    /* Luxury Minimalist Card Structure */
     .menu-card {
-      background: rgba(243,232,215,0.96); border: 1px solid rgba(214,178,126,0.18);
-      border-left: 3px solid transparent; border-radius: 1px; padding: 1.1rem 1.25rem;
-      cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
-      -webkit-tap-highlight-color: transparent; position: relative; overflow: hidden;
-      content-visibility: auto; contain-intrinsic-size: auto 100px;
-    }
-    .menu-card:hover {
-      border-left-color: var(--crimson); transform: translateX(3px);
-      box-shadow: -4px 0 0 var(--crimson), 3px 4px 18px var(--shadow-ink);
-      background: rgba(255,252,248,0.95);
-    }
-    .card-row { display: flex; gap: 14px; align-items: flex-start; }
-    .card-thumb {
-      width: 68px; height: 68px; flex-shrink: 0; border-radius: 1px;
-      background: linear-gradient(135deg, var(--washi-dark) 0%, var(--washi-deep) 100%);
-      border: 1px solid rgba(139,26,26,0.15); display: flex; align-items: center; justify-content: center;
-      font-size: 32px; position: relative; overflow: hidden;
-    }
-    .card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; decoding: async; }
-    .ar-pill {
-      position: absolute; bottom: 2px; right: 2px; background: var(--crimson);
-      color: var(--washi); font-size: 7px; letter-spacing: 1px; padding: 2px 5px;
-      font-family: var(--font-display); line-height: 1.4;
-    }
-    .card-body { flex: 1; min-width: 0; }
-    .name-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
-    .dish-name { font-family: var(--font-body); font-size: 19px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
-    
-    .tags-row { display: flex; gap: 5px; flex-wrap: wrap; margin: 5px 0 7px; }
-    .tag { font-size: 10px; padding: 2px 9px; font-family: var(--font-sans); font-weight: 500; letter-spacing: 0.5px; border-radius: 1px; }
-    .tag-veg  { background: var(--sage-lt); color: var(--sage); border: 1px solid rgba(74,103,65,0.2); }
-    .tag-new  { background: rgba(139,26,26,0.08); color: var(--crimson); border: 1px solid rgba(139,26,26,0.2); }
-    .tag-dotd { background: rgba(154,120,32,0.1); color: var(--gold); border: 1px solid rgba(154,120,32,0.25); }
-    
-    .dish-desc { font-size: 12.5px; color: var(--ink-light); line-height: 1.65; margin-bottom: 10px; font-family: var(--font-sans); }
-    .card-footer { display: flex; align-items: center; justify-content: space-between; }
-    .dish-price { font-family: var(--font-body); font-size: 22px; font-weight: 600; color: var(--ink); }
-    .price-sym { font-family: var(--font-sans); font-size: 12px; color: var(--ink-faint); margin-right: 1px; }
-    
-    .ar-btn {
-      display: inline-flex; align-items: center; gap: 6px; background: var(--ink);
-      color: var(--washi); border: none; padding: 8px 16px;
-      font-family: var(--font-sans); font-size: 11px; letter-spacing: 1px;
-      cursor: pointer; transition: background 0.18s, box-shadow 0.18s;
-      -webkit-tap-highlight-color: transparent; min-height: 44px; border-radius: 1px; position: relative;
-    }
-    .ar-btn::before { content: ''; position: absolute; inset: 0; background: var(--crimson); opacity: 0; transition: opacity 0.18s; }
-    .ar-btn:hover::before { opacity: 1; }
-    .ar-btn:hover { box-shadow: 0 4px 14px rgba(139,26,26,0.4); }
-    .ar-btn > * { position: relative; z-index: 1; }
-    .ar-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; background: rgba(10,6,2,0.88);
-      z-index: 9000; align-items: flex-end; justify-content: center;
-      padding: 0; backdrop-filter: blur(2px);
-    }
-    @media (min-width: 540px) { .modal-overlay { align-items: center; padding: 1.5rem; } }
-    .modal-overlay.open { display: flex; }
-    .modal-card {
-      background: #f3e8d7; border-top: 3px solid var(--crimson);
-      width: 100%; max-width: 520px; max-height: 92svh;
-      overflow-y: auto; overscroll-behavior: contain; position: relative;
-      animation: slideUp 0.28s cubic-bezier(0.22,1,0.36,1);
-    }
-    @media (min-width: 540px) {
-      .modal-card { border-top: none; border: 1px solid rgba(139,26,26,0.2); border-radius: 2px; animation: fadeIn 0.22s ease; }
-    }
-    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: none; opacity: 1; } }
-    @keyframes fadeIn  { from { opacity: 0; transform: scale(0.96) translateY(8px); } to { opacity: 1; transform: none; } }
-    
-    .modal-viewer-wrap {
-      width: 100%; height: 300px;
-      background: linear-gradient(160deg, #120c05 0%, #1e1208 50%, #120c05 100%);
+      background: var(--surface-dark); border: 1px solid var(--surface-border);
+      border-radius: 16px; padding: 1.25rem; cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative; overflow: hidden;
     }
-    .modal-viewer-wrap::before {
-      content: ''; position: absolute; inset: 12px;
-      border: 1px solid rgba(196,160,48,0.18); pointer-events: none; z-index: 3;
+    .menu-card:hover {
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-premium), inset 0 1px 20px rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.04);
     }
+    
+    .card-row { display: flex; gap: 20px; align-items: center; }
+    
+    .card-thumb {
+      width: 80px; height: 80px; flex-shrink: 0; border-radius: 12px;
+      background: rgba(255,255,255,0.02); border: 1px solid var(--surface-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; position: relative; overflow: hidden;
+    }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .ar-pill {
+      position: absolute; top: 4px; right: 4px; background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3); color: var(--neon-cyan);
+      font-size: 8px; font-weight: 700; padding: 2px 5px; border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+    
+    .card-body { flex: 1; min-width: 0; }
+    .name-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 4px; }
+    .dish-name { font-family: var(--font-sans); font-size: 18px; font-weight: 600; color: var(--text-main); }
+    .dish-price { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--electric-gold); }
+    
+    .dish-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+    
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .tags-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 6px; letter-spacing: 0.3px; }
+    .tag-veg  { background: rgba(86, 122, 71, 0.12); color: #86efac; border: 1px solid rgba(134, 239, 172, 0.15); }
+    .tag-new  { background: rgba(6, 182, 212, 0.1); color: var(--neon-cyan); border: 1px solid rgba(6, 182, 212, 0.2); }
+    .tag-dotd { background: rgba(245, 158, 11, 0.1); color: var(--electric-gold); border: 1px solid rgba(245, 158, 11, 0.2); }
+    
+    /* Futuristic Interaction Button */
+    .ar-btn {
+      display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04);
+      color: var(--text-main); border: 1px solid var(--surface-border); padding: 8px 16px;
+      font-family: var(--font-sans); font-size: 12px; font-weight: 600; border-radius: 8px;
+      cursor: pointer; transition: all 0.25s; min-height: 38px;
+    }
+    .ar-btn hover, .menu-card:hover .ar-btn {
+      background: var(--neon-cyan); color: #000000; border-color: var(--neon-cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+    .ar-btn svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .menu-card:hover .ar-btn svg { transform: scale(1.1) rotate(10deg); }
 
-    #mv-wrapper { position: absolute; inset: 0; z-index: 2; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
-    #mv-wrapper.mv-visible { opacity: 1; pointer-events: auto; }
-
-    model-viewer {
-      display: block; width: 100%; height: 300px; background: transparent;
-      --progress-bar-color: #b8860b; --progress-mask: transparent;
-      touch-action: pan-y pinch-zoom; position: absolute; inset: 0;
+    /* ── MODAL HUD WINDOW ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(4, 5, 8, 0.9);
+      z-index: 9000; align-items: center; justify-content: center;
+      padding: 1rem; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     }
-    model-viewer > [slot="ar-button"] { display: none !important; }
-
-    .mv-ar-badge {
-      position: absolute; top: 10px; left: 50%; transform: translateX(-50%) translateY(-8px);
-      background: rgba(20,12,4,0.92); border: 1px solid var(--gold);
-      padding: 4px 14px; font-family: var(--font-display); font-size: 9px; letter-spacing: 2px;
-      color: var(--gold-pale); text-transform: uppercase; opacity: 0; transition: opacity 0.4s, transform 0.4s;
-      pointer-events: none; z-index: 4; white-space: nowrap;
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: #0f1117; border: 1px solid var(--surface-border); border-radius: 24px;
+      width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8); position: relative;
+      animation: modalLaunch 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .mv-ar-badge.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .scale-info {
-      position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-      background: rgba(20,12,4,0.85); border: 1px solid rgba(196,160,48,0.2);
-      padding: 4px 14px; font-family: var(--font-sans); font-size: 9px; letter-spacing: 2px;
-      color: rgba(245,237,224,0.45); text-transform: uppercase; white-space: nowrap; z-index: 4; pointer-events: none;
-    }
+    @keyframes modalLaunch { from { transform: scale(0.92) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+    
+    .modal-viewer-wrap { width: 100%; height: 320px; position: relative; background: #07080c; }
+    model-viewer { display: block; width: 100%; height: 320px; background: transparent; }
+    
     .modal-close {
-      position: absolute; top: 12px; right: 12px; width: 36px; height: 36px;
-      background: rgba(10,6,2,0.6); border: 1px solid rgba(196,160,48,0.2);
-      color: rgba(245,237,224,0.7); font-size: 16px; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; z-index: 10; transition: background 0.15s, border-color 0.15s; font-family: serif;
+      position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--surface-border);
+      color: var(--text-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10; transition: all 0.2s;
     }
-    .modal-close:hover { background: var(--crimson); border-color: var(--crimson); color: var(--washi); }
+    .modal-close:hover { background: var(--text-main); color: #000000; }
 
     .mv-loader {
       position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-      background: linear-gradient(160deg, #120c05 0%, #1e1208 50%, #120c05 100%); transition: opacity 0.3s;
+      background: #07080c;
     }
-    .mv-loader.hidden { opacity: 0; pointer-events: none; }
-    .mv-loader-ring { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(196,160,48,0.15); border-top-color: var(--gold); animation: spin 0.8s linear infinite; }
-    .mv-loader-text { font-family: var(--font-display); font-size: 10px; letter-spacing: 3px; color: var(--gold-pale); opacity: 0.6; }
+    .mv-loader-ring { width: 32px; height: 32px; border-radius: 50%; border: 2px solid rgba(6, 182, 212, 0.1); border-top-color: var(--neon-cyan); animation: spin 0.8s linear infinite; }
+    .mv-loader-text { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--neon-cyan); }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    .modal-body { padding: 1.5rem 1.6rem 2rem; }
-    .modal-name { font-family: var(--font-display); font-size: 26px; font-weight: 600; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 2px; }
-    .modal-desc { font-size: 13.5px; color: var(--ink-light); line-height: 1.75; padding: 12px 16px; border-left: 3px solid var(--crimson); background: rgba(139,26,26,0.04); margin-bottom: 18px; font-family: var(--font-sans); }
-    .modal-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(139,26,26,0.15); }
-    .modal-price { font-family: var(--font-body); font-size: 32px; font-weight: 600; color: var(--ink); }
-
-    .mv-ar-btn-wrap { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 6; display: none; gap: 10px; align-items: center; }
+    .modal-body { padding: 1.75rem; }
+    .modal-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .modal-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    
+    .modal-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1.25rem; border-top: 1px solid var(--surface-border); }
+    
     .modal-ar-launch-btn {
-      display: inline-flex; align-items: center; gap: 8px; background: var(--crimson); color: var(--washi);
-      border: none; padding: 11px 24px; font-family: var(--font-display); font-size: 12px; font-weight: 600;
-      letter-spacing: 2px; cursor: pointer; white-space: nowrap; min-height: 44px; box-shadow: 0 4px 18px rgba(139,26,26,0.45); transition: opacity 0.15s;
+      display: inline-flex; align-items: center; gap: 8px; background: var(--neon-cyan); color: #000000;
+      border: none; padding: 12px 24px; font-family: var(--font-sans); font-size: 13px; font-weight: 700;
+      border-radius: 10px; cursor: pointer; box-shadow: 0 8px 24px var(--glass-glow); transition: all 0.25s;
     }
-    .modal-ar-launch-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .modal-ar-launch-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(6, 182, 212, 0.6); }
+
+    .funzone-btn {
+      display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05);
+      border: 1px solid var(--surface-border); color: var(--text-main); text-decoration: none;
+      padding: 8px 16px; font-size: 12px; font-weight: 600; border-radius: 8px; backdrop-filter: blur(10px);
+    }
 
     .site-footer {
-      text-align: center; padding: 1.8rem 1rem; font-size: 11px; letter-spacing: 2px;
-      background: rgba(20, 4, 6, 0.85); color: #d8b98e; border-top: 1px solid rgba(139,26,26,0.15);
-      line-height: 2; font-family: var(--font-serif); position: relative;
+      text-align: center; padding: 3rem 1.5rem; font-size: 12px; color: var(--text-muted);
+      border-top: 1px solid var(--surface-border); background: #07080a; line-height: 1.8;
     }
-    .site-footer::before { content: '✿  ✿  ✿'; display: block; color: var(--crimson); opacity: 0.4; font-size: 14px; letter-spacing: 8px; margin-bottom: 8px; }
-    .menu-card.unavailable { opacity: 0.4; pointer-events: none; }
-    
-    .funzone-btn {
-      display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--crimson), var(--gold));
-      color: var(--washi); text-decoration: none; padding: 8px 16px; font-family: var(--font-sans); font-size: 11px; font-weight: 500;
-      letter-spacing: 1px; box-shadow: 0 4px 14px rgba(139,26,26,0.4); transition: opacity 0.15s;
-    }
-    .funzone-btn:hover { opacity: 0.85; }
 
-    .ar-not-supported {
-      display: none; position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 6;
-      background: rgba(20,12,4,0.92); border: 1px solid rgba(196,160,48,0.3); padding: 8px 18px; font-family: var(--font-sans);
-      font-size: 11px; color: rgba(245,237,224,0.6); letter-spacing: 1px; white-space: nowrap; text-align: center;
-    }
+    .skeleton-card { background: rgba(255,255,255,0.01); border: 1px solid var(--surface-border); border-radius: 16px; padding: 1.25rem; }
+    .skeleton-card .sk-thumb { width: 80px; height: 80px; background: rgba(255,255,255,0.03); border-radius: 12px; }
+    .skeleton-card .sk-line { height: 12px; background: rgba(255,255,255,0.04); border-radius: 4px; margin-bottom: 8px; }
   </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="menu-texture-bg"></div>
-  <div style="position:absolute;top:max(env(safe-area-inset-top),1rem);right:1rem;z-index:20;">
+  <div style="position:absolute;top:max(env(safe-area-inset-top),1.5rem);right:1.5rem;z-index:20;">
     <a href="FunZone.html" class="funzone-btn">🎮 FunZone</a>
   </div>
+  
+  <div class="header-pill">
+    <div class="header-pill-dot"></div>
+    <div class="header-pill-text">LiveDish AI Platform</div>
+  </div>
+  
+  <h1 class="header-title">Experience <span>Spatial</span> Dining</h1>
+  <p class="header-subtitle">Interactive 3D & Augmented Reality systems designed for high-end luxury establishments.</p>
+
   <div id="language-picker">
     <select id="lang-select">
       <option value="en">English</option>
@@ -389,15 +306,6 @@
       <option value="te">తెలుగు</option>
     </select>
   </div>
-  <div class="header-mon"></div>
-  <p class="header-brand">LIVEDISH AI</p>
-  <h1 class="header-title">GLOBAL AR MENU</h1>
-  <span class="header-title-sub">Curated Culinary Masterpieces</span>
-  <div class="brush-divider"></div>
-  <span class="ar-badge">
-    <span class="ar-dot"></span>
-    <span id="ui-ar-badge">Interactive 3D &amp; AR Preview</span>
-  </span>
 </header>
 
 <div class="nav-sticky-container">
@@ -414,8 +322,7 @@
 <main class="main">
   <div id="items-container">
     <div class="skeleton-grid" id="skeleton-ui" aria-hidden="true">
-      <div class="skeleton-card"><div class="sk-row"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line wide"></div><div class="sk-line full"></div><div class="sk-line full"></div></div></div></div>
-      <div class="skeleton-card"><div class="sk-row"><div class="sk-thumb"></div><div class="sk-body"><div class="sk-line full"></div><div class="sk-line full"></div></div></div></div>
+      <div class="skeleton-card"><div class="card-row"><div class="sk-thumb"></div><div style="flex:1;"><div class="sk-line" style="width:40%;"></div><div class="sk-line" style="width:80%;"></div></div></div></div>
     </div>
   </div>
 </main>
@@ -426,37 +333,30 @@
       <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
       <div class="mv-loader" id="mv-loader">
         <div class="mv-loader-ring"></div>
-        <div class="mv-loader-text">LOADING MODEL</div>
+        <div class="mv-loader-text">INITIALIZING SPATIAL MODEL</div>
       </div>
       <div id="modal-photo" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:1;"></div>
       <div id="mv-wrapper"></div>
-      <div class="mv-ar-badge" id="mv-ar-badge">✦ AR Ready</div>
-      <div class="scale-info"  id="scale-info">Actual portion size</div>
-      <div class="mv-ar-btn-wrap" id="mv-ar-btn-wrap">
-        <button class="modal-ar-launch-btn" id="modal-ar-launch-btn">✦ View On Table</button>
-      </div>
-      <div class="ar-not-supported" id="ar-not-supported">AR not supported on this device — rotate to view in 3D</div>
     </div>
     <div class="modal-body">
       <h2 class="modal-name" id="modal-name"></h2>
-      <div class="tags-row"  id="modal-tags"></div>
-      <p  class="modal-desc" id="modal-desc"></p>
+      <p class="modal-desc" id="modal-desc"></p>
       <div class="modal-footer">
         <div class="modal-price" id="modal-price"></div>
-        <div class="tags-row"    id="modal-tags2"></div>
+        <button class="modal-ar-launch-btn" id="modal-ar-launch-btn">✦ Launch AR View</button>
       </div>
     </div>
   </div>
 </div>
 
 <footer class="site-footer">
-  Tap any dish to view in 3D &nbsp;·&nbsp; Prices in ₹ &nbsp;·&nbsp; 🌿 Vegetarian friendly<br>
-  <span style="opacity:0.5;font-size:10px;">AR requires a compatible mobile device · Model size reflects actual portion</span>
+  Powered by LiveDish-AI.online &nbsp;·&nbsp; Spatial portions true to scale.<br>
+  <span style="opacity:0.4; font-size:11px;">Enhancing guest trust and reducing food wastage via smart 3D previews.</span>
 </footer>
 
 <script>
 /* ─────────────────────────────────────────────────────────────────────
-   CONFIGURATION & MAPS
+   CONFIGURATION & STATE LOGIC
    ───────────────────────────────────────────────────────────────────── */
 const ASSETS_BASE = '3d-model';
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTEkmIGoRgD1rQNmDgmY3lvB7WBOg86iOHHrS0MJ6qQiReuDHsUyX3YV7KoWXxTbefyBUWPTHpvUOt3/pub?output=csv';
@@ -469,25 +369,19 @@ const LOCAL_ASSETS = {
 };
 
 const EMOJI_MAP = {
-  'pistachio-sauce-bigne-with-ricotta': '🍮',
-  'pinocchio-tiramisu':                  '🍰',
-  'cheesy-green-lasagne':               '🧀',
-  'fried-calamari':                      '🦑'
+  'pistachio-sauce-bigne-with-ricotta': '🍮', 'pinocchio-tiramisu': '🍰', 'cheesy-green-lasagne': '🧀', 'fried-calamari': '🦑'
 };
 
 const I18N = {
-  en: { badge:'Interactive 3D & AR Preview', veg:'veg', all:'All', starter:'Starters', 'main-course':'Main Course', dessert:'Desserts' },
-  it: { badge:'Anteprima Interattiva 3D & AR', veg:'vegetariano', all:'Tutti', starter:'Antipasti', 'main-course':'Portata Principale', dessert:'Dolci' },
-  kn: { badge:'3D ಮತ್ತು AR ಮುನ್ನೋಟ', veg:'ಸಸ್ಯಾಹಾರಿ', all:'ಎಲ್ಲಾ', starter:'ಸ್ಟಾರ್ಟರ್', 'main-course':'ಮುಖ್ಯ ಕೋರ್ಸ್', dessert:'ಡೆಸರ್ಟ್' },
-  ta: { badge:'3D மற்றும் AR மாதிரிக்காட்சி', veg:'சைவம்', all:'அனைத்தும்', starter:'தொடக்க', 'main-course':'முதன்மை', dessert:'இனிப்பு' },
-  ml: { badge:'3D & AR പ്രിവ്യൂ', veg:'വെജ്', all:'എല്ലാം', starter:'സ്റ്റാർട്ടർ', 'main-course':'മെയിൻ കോഴ്സ്', dessert:'ഡെസേർട്ട്' },
-  te: { badge:'3D & AR ప్రివ్యూ', veg:'శాఖాహారం', all:'అన్నీ', starter:'స్టార్టర్', 'main-course':'మెయిన్ కోర్స్', dessert:'డెజర్ట్' }
+  en: { veg:'veg', all:'All', starter:'Starters', 'main-course':'Main Course', dessert:'Desserts' },
+  it: { veg:'vegetariano', all:'Tutti', starter:'Antipasti', 'main-course':'Portata Principale', dessert:'Dolci' },
+  kn: { veg:'ಸಸ್ಯಾಹಾರಿ', all:'ಎಲ್ಲಾ', starter:'ಸ್ಟಾರ್ಟರ್', 'main-course':'ಮುಖ್ಯ ಕೋರ್ಸ್', dessert:'ಡೆಸರ್ಟ್' },
+  ta: { veg:'சைவம்', all:'அனைத்தும்', starter:'தொடக்க', 'main-course':'முதன்மை', dessert:'இனிப்பு' },
+  ml: { veg:'വെജ്', all:'എല്ലാം', starter:'സ്റ്റാർട്ടർ', 'main-course':'മെയിൻ കോഴ്സ്', dessert:'ഡെസേർട്ട്' },
+  te: { veg:'శాఖాహారం', all:'అన్నీ', starter:'స్టార్టర్', 'main-course':'మెయిన్ కోర్స్', dessert:'డెజర్ట్' }
 };
 
-/* ─────────────────────────────────────────────
-   SESSION CACHING PROMISE
-───────────────────────────────────────────── */
-const CACHE_KEY = 'menu_csv_v2';
+const CACHE_KEY = 'menu_csv_v3';
 const CACHE_TTL = 15 * 60 * 1000;
 
 function getCachedCSV() {
@@ -495,7 +389,7 @@ function getCachedCSV() {
     const raw = sessionStorage.getItem(CACHE_KEY);
     if (!raw) return null;
     const { ts, text } = JSON.parse(raw);
-    if (Date.now() - ts > CACHE_TTL) { sessionStorage.removeItem(CACHE_KEY); return null; }
+    if (Date.now() - ts > CACHE_TTL) return null;
     return text;
   } catch { return null; }
 }
@@ -504,22 +398,16 @@ function setCachedCSV(text) {
 }
 
 const csvPromise = (async () => {
-  const cached = getCachedCSV();
-  if (cached) return cached;
+  const cached = getCachedCSV(); if (cached) return cached;
   const res = await fetch(CSV_URL);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = await res.text();
-  setCachedCSV(text);
-  return text;
+  const text = await res.text(); setCachedCSV(text); return text;
 })();
 
-let mvModulePromise = null;
-let mvModuleReady = false;
-
+let mvModulePromise = null, mvModuleReady = false;
 function ensureModelViewerLoaded() {
   if (!mvModulePromise) {
-    mvModulePromise = import('https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js')
-      .then(() => { mvModuleReady = true; });
+    mvModulePromise = import('https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js').then(() => { mvModuleReady = true; });
   }
   return mvModulePromise;
 }
@@ -529,33 +417,21 @@ function prefetchGlb(glbPath) {
   if (!glbPath || glbPrefetched.has(glbPath)) return;
   glbPrefetched.add(glbPath);
   const link = document.createElement('link');
-  link.rel = 'prefetch'; link.href = glbPath;
-  link.as = 'fetch'; link.crossOrigin = 'anonymous';
+  link.rel = 'prefetch'; link.href = glbPath; link.as = 'fetch'; link.crossOrigin = 'anonymous';
   document.head.appendChild(link);
 }
 
-/* ─────────────────────────────────────────────
-   UTILITY PARSERS
-───────────────────────────────────────────── */
 function normalizeKey(str) { return (str||'').toLowerCase().replace(/\s+/g,'-').trim(); }
 
 function getLocalAssets(dishName) {
-  const key = normalizeKey(dishName);
-  const entry = LOCAL_ASSETS[key];
+  const key = normalizeKey(dishName); const entry = LOCAL_ASSETS[key];
   if (!entry) return { posterPath:'', glbPath:'', usdzPath:'', scale:0.05, orbit:'0deg 75deg 105%' };
   const base = `${ASSETS_BASE}/${entry.folder}/${entry.file}`;
-  return {
-    posterPath: `${base}.png`,
-    glbPath:    `${base}.glb`,
-    usdzPath:   `${base}.usdz`,
-    scale:      entry.scale,
-    orbit:      entry.orbit ?? '0deg 75deg 105%'
-  };
+  return { posterPath: `${base}.png`, glbPath: `${base}.glb`, usdzPath: `${base}.usdz`, scale: entry.scale, orbit: entry.orbit };
 }
 
 function parseCSV(text) {
-  const lines = text.trim().split('\n');
-  if (lines.length < 2) return [];
+  const lines = text.trim().split('\n'); if (lines.length < 2) return [];
   const headers = splitLine(lines[0]).map(h => h.trim().toLowerCase());
   return lines.slice(1).map(line => {
     const vals = splitLine(line), obj = {};
@@ -576,12 +452,8 @@ function splitLine(line) {
   result.push(cur); return result;
 }
 
-/* ─────────────────────────────────────────────
-   STATE VARIABLES
-───────────────────────────────────────────── */
 let allDishes=[], rawRows=[], activeCuisine='italian', activeCategory='all', currentLang='en';
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || 
-              (navigator.platform==='MacIntel' && navigator.maxTouchPoints > 1);
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints > 1);
 
 function rowToDish(row) {
   const truthy = v => ['true','yes','1'].includes((v||'').toLowerCase());
@@ -589,77 +461,46 @@ function rowToDish(row) {
   const desc = row[`description${sfx}`] || row['description'] || '';
   const name = row[`name${sfx}`]        || row['name']        || '';
   const local = getLocalAssets(row['name']);
-  
-  // Dynamic Cuisine assignment setup. If column missing in legacy sheets, maps to Italian.
-  let cuisineAttr = (row['cuisine'] || 'italian').toLowerCase().trim();
-
   return {
-    id: row['id']||'', name,
-    cuisine: cuisineAttr,
-    category: (row['category']||'other').toLowerCase(),
-    desc, price: parseInt(row['price']||'0',10),
-    veg: truthy(row['veg']), available: truthy(row['available']),
-    glbPath: local.glbPath, usdzPath: local.usdzPath,
-    posterPath: local.posterPath, scale: local.scale,
-    orbit: local.orbit,
-    emoji: EMOJI_MAP[normalizeKey(row['name'])]||'🍽️'
+    id: row['id']||'', name, cuisine: (row['cuisine'] || 'italian').toLowerCase().trim(),
+    category: (row['category']||'other').toLowerCase(), desc, price: parseInt(row['price']||'0',10),
+    veg: truthy(row['veg']), available: truthy(row['available']), glbPath: local.glbPath, usdzPath: local.usdzPath,
+    posterPath: local.posterPath, scale: local.scale, orbit: local.orbit, emoji: EMOJI_MAP[normalizeKey(row['name'])]||'🍽️'
   };
 }
 
-/* ─────────────────────────────────────────────
-   RENDERING LAYOUT WORKFLOWS
-───────────────────────────────────────────── */
-function tagHTML(d) {
-  const t = I18N[currentLang]||I18N.en;
-  return [
-    d.veg   ? `<span class="tag tag-veg">🌿 ${t.veg}</span>` : '',
-    d.isNew ? `<span class="tag tag-new">✨ New</span>` : '',
-    d.dotd  ? `<span class="tag tag-dotd">★ Chef's Pick</span>` : ''
-  ].join('');
-}
-
-function catLabel(cat) {
-  const langPack = I18N[currentLang] || I18N.en;
-  return langPack[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1));
-}
+function catLabel(cat) { const langPack = I18N[currentLang] || I18N.en; return langPack[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1)); }
 
 function renderTabs() {
   const cats = ['all','starter','main-course','dessert'];
   const wrap = document.getElementById('tabs-inner');
-  wrap.innerHTML = cats.map(c =>
-    `<button class="tab-btn${c===activeCategory?' active':''}" data-cat="${c}">${catLabel(c)}</button>`
-  ).join('');
-  wrap.querySelectorAll('.tab-btn').forEach(btn =>
-    btn.addEventListener('click', ()=>{ activeCategory=btn.dataset.cat; renderTabs(); renderItems(); })
-  );
+  wrap.innerHTML = cats.map(c => `<button class="tab-btn${c===activeCategory?' active':''}" data-cat="${c}">${catLabel(c)}</button>`).join('');
+  wrap.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', ()=>{ activeCategory=btn.dataset.cat; renderTabs(); renderItems(); }));
 }
 
-const SVG_CUBE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`;
+const SVG_CUBE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`;
 
-function cardHTML(d, isAboveFold) {
-  const imgLoading = isAboveFold ? 'eager' : 'lazy';
-  const fetchPriority = isAboveFold ? 'fetchpriority="high"' : '';
-  const thumb = d.posterPath
-    ? `<img src="${d.posterPath}" alt="${d.name}" loading="${imgLoading}" decoding="async" ${fetchPriority}
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+function cardHTML(d) {
+  const thumb = d.posterPath 
+    ? `<img src="${d.posterPath}" alt="${d.name}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
        <span style="display:none;font-size:32px;width:100%;height:100%;align-items:center;justify-content:center;">${d.emoji}</span>`
     : `<span style="font-size:32px;">${d.emoji}</span>`;
   return `
-    <div class="menu-card${d.available?'':' unavailable'}" data-id="${d.id}" role="button" tabindex="0" aria-label="View ${d.name}">
+    <div class="menu-card${d.available?'':' unavailable'}" data-id="${d.id}" role="button" tabindex="0">
       <div class="card-row">
-        <div class="card-thumb">
-          ${thumb}
-          ${d.glbPath?'<span class="ar-pill">AR</span>':''}
-        </div>
+        <div class="card-thumb">${thumb}${d.glbPath?'<span class="ar-pill">AR Ready</span>':''}</div>
         <div class="card-body">
           <div class="name-row">
             <span class="dish-name">${d.name}</span>
+            <span class="dish-price">₹${d.price.toLocaleString('en-IN')}</span>
           </div>
-          <div class="tags-row">${tagHTML(d)}</div>
           <p class="dish-desc">${d.desc}</p>
           <div class="card-footer">
-            <div class="dish-price"><span class="price-sym">₹</span>${d.price.toLocaleString('en-IN')}</div>
-            ${d.glbPath?`<button class="ar-btn" data-id="${d.id}">${SVG_CUBE} View in AR</button>`:''}
+            <div class="tags-row">
+              ${d.veg ? `<span class="tag tag-veg">🌿 Veg</span>` : ''}
+              ${d.dotd ? `<span class="tag tag-dotd">★ Signature</span>` : ''}
+            </div>
+            ${d.glbPath ? `<button class="ar-btn" data-id="${d.id}">${SVG_CUBE} Preview 3D</button>` : ''}
           </div>
         </div>
       </div>
@@ -667,240 +508,94 @@ function cardHTML(d, isAboveFold) {
 }
 
 function renderItems() {
-  // First tier filtering by Active Cuisine choice
   let filtered = allDishes.filter(d => d.cuisine === activeCuisine);
-  
-  // Second tier filtering by Category tab
-  if (activeCategory !== 'all') {
-    filtered = filtered.filter(d => d.category === activeCategory);
-  }
+  if (activeCategory !== 'all') filtered = filtered.filter(d => d.category === activeCategory);
   
   const container = document.getElementById('items-container');
-
   if (!filtered.length) {
-    container.innerHTML = `
-      <div class="state-box">
-        <p style="font-family:var(--font-serif);letter-spacing:1px;color:var(--gold)">Coming Soon</p>
-        <p style="font-size:12px;opacity:0.6;margin-top:5px;">Our chefs are crafting exceptional 3D experiences for this section.</p>
-      </div>`;
+    container.innerHTML = `<div class="state-box"><p style="font-family:var(--font-display);color:var(--text-muted)">Premium Dishes En Route</p></div>`;
     return;
   }
 
   let html = '';
   if (activeCategory === 'all') {
-    const grouped = {};
-    filtered.forEach(d => { (grouped[d.category] = grouped[d.category] || []).push(d); });
-    let cardIndex = 0;
-    html = Object.entries(grouped).map(([cat, items]) =>
+    const grouped = {}; filtered.forEach(d => { (grouped[d.category] = grouped[d.category] || []).push(d); });
+    html = Object.entries(grouped).map(([cat, items]) => 
       `<div class="section-label"><span></span>${catLabel(cat)}<span></span></div>
-       <div class="items-grid">${items.map(d => cardHTML(d, cardIndex++ < 4)).join('')}</div>`
+       <div class="items-grid">${items.map(d => cardHTML(d)).join('')}</div>`
     ).join('');
   } else {
-    html = `<div class="items-grid">${filtered.map((d, i) => cardHTML(d, i < 4)).join('')}</div>`;
+    html = `<div class="items-grid">${filtered.map(d => cardHTML(d)).join('')}</div>`;
   }
-
   container.innerHTML = html;
 
   requestAnimationFrame(() => {
     container.querySelectorAll('.menu-card').forEach(card => {
-      const d = allDishes.find(x => x.id === card.dataset.id);
-      if (!d) return;
-      const doPrefetch = () => { prefetchGlb(d.glbPath); ensureModelViewerLoaded(); };
-      card.addEventListener('mouseenter', doPrefetch, { once: true, passive: true });
-      card.addEventListener('touchstart',  doPrefetch, { once: true, passive: true });
+      const d = allDishes.find(x => x.id === card.dataset.id); if (!d) return;
+      const loadAssets = () => { prefetchGlb(d.glbPath); ensureModelViewerLoaded(); };
+      card.addEventListener('mouseenter', loadAssets, { once:true, passive:true });
+      card.addEventListener('touchstart', loadAssets, { once:true, passive:true });
       card.addEventListener('click', () => openModal(card.dataset.id));
     });
-    container.querySelectorAll('.ar-btn').forEach(btn =>
-      btn.addEventListener('click', e => { e.stopPropagation(); openModal(btn.dataset.id); })
-    );
   });
 }
 
 /* ─────────────────────────────────────────────
-   MODEL INTERACTION & AR WORKFLOWS
+   AR ENGINE HUD MANAGEMENT
 ───────────────────────────────────────────── */
-const elMvWrapper    = document.getElementById('mv-wrapper');
-const elMvLoader      = document.getElementById('mv-loader');
-const elPhoto         = document.getElementById('modal-photo');
-const elArBadge       = document.getElementById('mv-ar-badge');
-const elScaleInfo     = document.getElementById('scale-info');
-const elArBtnWrap     = document.getElementById('mv-ar-btn-wrap');
-const elArLaunch      = document.getElementById('modal-ar-launch-btn');
-const elArNotSupported= document.getElementById('ar-not-supported');
-
-let currentDish = null;
-let elMV = null; 
-
-function showLoader() { elMvLoader.classList.remove('hidden'); }
-function hideLoader() { elMvLoader.classList.add('hidden'); }
-function showMV()      { elMvWrapper.classList.add('mv-visible'); }
-function hideMV()      { elMvWrapper.classList.remove('mv-visible'); }
-
-function setPhoto(d) {
-  if (d.posterPath) {
-    elPhoto.innerHTML = `
-      <img src="${d.posterPath}" alt="${d.name}" style="width:100%;height:100%;object-fit:cover;" loading="eager" decoding="async"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <span style="display:none;font-size:80px;align-items:center;justify-content:center;width:100%;height:100%;">${d.emoji}</span>`;
-  } else {
-    elPhoto.innerHTML = `<span style="font-size:80px;">${d.emoji}</span>`;
-  }
-  elPhoto.style.display = 'flex';
-}
-
-function updateARButtonVisibility() {
-  if (!elMV) return;
-  const canAR = elMV.canActivateAR;
-  elArBtnWrap.style.display      = canAR ? 'flex' : 'none';
-  elArNotSupported.style.display = canAR ? 'none' : 'block';
-}
+const elMvWrapper = document.getElementById('mv-wrapper'), elMvLoader = document.getElementById('mv-loader'), elPhoto = document.getElementById('modal-photo'), elArLaunch = document.getElementById('modal-ar-launch-btn');
+let currentDish = null, elMV = null;
 
 function openModal(id) {
-  const d = allDishes.find(x => x.id === id);
-  if (!d) return;
+  const d = allDishes.find(x => x.id === id); if (!d) return;
   currentDish = d;
 
   document.getElementById('modal-name').textContent = d.name;
   document.getElementById('modal-desc').textContent = d.desc;
-  document.getElementById('modal-price').innerHTML  = `<span style="font-family:var(--font-sans);font-size:14px;color:var(--ink-faint)">₹</span>${d.price.toLocaleString('en-IN')}`;
-  document.getElementById('modal-tags').innerHTML   = tagHTML(d);
-  document.getElementById('modal-tags2').innerHTML  = tagHTML(d);
+  document.getElementById('modal-price').innerHTML = `₹${d.price.toLocaleString('en-IN')}`;
 
-  hideMV();
-  elArBadge.classList.remove('visible');
-  elScaleInfo.textContent = '';
-  elArBtnWrap.style.display = 'none';
-  elArNotSupported.style.display = 'none';
-  elArLaunch.disabled = false;
-  elArLaunch.textContent = '✦ View On Table';
-
-  setPhoto(d);
-  showLoader();
-  elMvWrapper.innerHTML = '';
+  elMvWrapper.innerHTML = ''; elMvLoader.classList.remove('hidden'); elMvWrapper.classList.remove('mv-visible');
+  elPhoto.innerHTML = d.posterPath ? `<img src="${d.posterPath}" style="width:100%;height:100%;object-fit:cover;">` : `<span style="font-size:60px">${d.emoji}</span>`;
+  elPhoto.style.display = 'flex';
 
   if (d.glbPath) {
-    prefetchGlb(d.glbPath);
     ensureModelViewerLoaded().then(() => {
-      if (currentDish?.id !== d.id) return; 
-
+      if (currentDish?.id !== d.id) return;
       const s = (d.scale ?? 1).toFixed(6);
-      const scaleString = `${s} ${s} ${s}`;
-
       elMV = document.createElement('model-viewer');
-      elMV.id = 'main-mv';
-      elMV.setAttribute('ar', '');
-      elMV.setAttribute('ar-modes', 'webxr');
-      elMV.setAttribute('ar-placement', 'floor');
-      elMV.setAttribute('ar-scale', 'fixed');
-      elMV.setAttribute('xr-environment', '');
-      elMV.setAttribute('camera-controls', '');
-      elMV.setAttribute('touch-action', 'pan-y');
-      elMV.setAttribute('shadow-intensity', '1');
-      elMV.setAttribute('shadow-softness', '0.8');
-      elMV.setAttribute('environment-image', 'neutral');
-      elMV.setAttribute('exposure', '1');
-      elMV.setAttribute('min-camera-orbit', 'auto auto 60%');
-      elMV.setAttribute('max-camera-orbit', 'auto auto 140%');
-      elMV.setAttribute('interaction-prompt', 'none');
-      elMV.setAttribute('loading', 'eager');
-      elMV.setAttribute('reveal', 'manual');
-      elMV.setAttribute('scale', scaleString);
-      elMV.style.setProperty('--ar-scale', s);
-      elMV.setAttribute('camera-orbit', d.orbit ?? '0deg 75deg 105%');
+      elMV.setAttribute('ar', ''); elMV.setAttribute('ar-modes', 'webxr scene-viewer');
+      elMV.setAttribute('camera-controls', ''); elMV.setAttribute('shadow-intensity', '1');
+      elMV.setAttribute('scale', `${s} ${s} ${s}`); elMV.setAttribute('src', d.glbPath);
+      if (isIOS && d.usdzPath) elMV.setAttribute('ios-src', d.usdzPath);
 
-      if (isIOS && d.usdzPath) { elMV.setAttribute('ios-src', d.usdzPath); }
-
-      const slotBtn = document.createElement('button');
-      slotBtn.setAttribute('slot', 'ar-button');
-      slotBtn.style.display = 'none';
-      elMV.appendChild(slotBtn);
-
-      elMV.addEventListener('load', () => { if (currentDish?.id === d.id) onMVLoaded(d); });
-      elMV.addEventListener('error', () => {
-        hideLoader();
-        if (currentDish) setPhoto(currentDish);
-        elArLaunch.textContent = '⚠ Retry';
+      elMV.addEventListener('load', () => {
+        if (currentDish?.id !== d.id) return;
+        elMvLoader.classList.add('hidden'); elPhoto.style.display = 'none'; elMvWrapper.classList.add('mv-visible');
       });
-
       elMvWrapper.appendChild(elMV);
-      elMV.setAttribute('src', d.glbPath);
     });
-  } else {
-    hideLoader();
-  }
-
+  } else { elMvLoader.classList.add('hidden'); }
   document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
 }
 
-function onMVLoaded(d) {
-  if (currentDish?.id !== d.id || !elMV) return;
-  hideLoader();
-  elPhoto.style.display = 'none';
-  showMV();
-  elArBadge.classList.add('visible');
-  elScaleInfo.textContent = 'Actual portion size';
-  updateARButtonVisibility();
-}
-
-elArLaunch.addEventListener('click', () => {
-  if (!elMV || !elMV.canActivateAR) return;
-  try { elMV.activateAR(); } catch(e) { console.warn(e); }
-});
-
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-  currentDish = null;
-  if (elMvWrapper) elMvWrapper.innerHTML = '';
-  elMV = null;
-}
-
+elArLaunch.addEventListener('click', () => { if (elMV && elMV.canActivateAR) elMV.activateAR(); });
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); currentDish = null; if (elMvWrapper) elMvWrapper.innerHTML = ''; elMV = null; }
 document.getElementById('modal-close').addEventListener('click', closeModal);
-document.getElementById('modal-overlay').addEventListener('click', e => { if (e.target === document.getElementById('modal-overlay')) closeModal(); });
 
-/* ─────────────────────────────────────────────
-   INITIALIZATION CORE ENTRY
-───────────────────────────────────────────── */
-// Setup Cuisine Button Listeners
 document.querySelectorAll('#cuisine-bar .cuisine-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', () => {
     document.querySelectorAll('#cuisine-bar .cuisine-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeCuisine = btn.dataset.cuisine;
-    activeCategory = 'all'; // Reset sub category view to clear mismatch state
-    renderTabs();
-    renderItems();
+    btn.classList.add('active'); activeCuisine = btn.dataset.cuisine; activeCategory = 'all';
+    renderTabs(); renderItems();
   });
 });
 
-document.getElementById('lang-select').addEventListener('change', e => {
-  currentLang = e.target.value;
-  allDishes = rawRows.map(rowToDish).filter(d=>d.name);
-  renderTabs(); renderItems();
-});
-
 async function init() {
-  const container = document.getElementById('items-container');
   try {
-    const text = await csvPromise;
-    rawRows    = parseCSV(text);
-    allDishes  = rawRows.map(rowToDish).filter(d=>d.name);
-    
-    renderTabs();
-    renderItems();
-  } catch(err) {
-    console.error(err);
-    container.innerHTML = `<div class="state-box"><p style="color:var(--crimson)">Could not update menu. Please verify network source.</p></div>`;
-  }
+    const text = await csvPromise; rawRows = parseCSV(text); allDishes = rawRows.map(rowToDish).filter(d=>d.name);
+    renderTabs(); renderItems();
+  } catch(err) { console.error(err); }
 }
-
-// Devtools & Right Click Guard
-document.addEventListener('contextmenu', (e) => e.preventDefault());
-document.onkeydown = function(e) {
-  if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && [73, 74, 67, 75].includes(e.keyCode)) || (e.ctrlKey && e.keyCode === 85)) return false;
-};
-
 init();
 </script>
 </body>
